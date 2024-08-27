@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <style>
+        body {
+            background-color: #2e2e2e;
+            color: white;
+            font-style: italic;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.2);
+        }
+
+        .icons {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .icons a {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+        }
+
+        .icons a:hover {
+            color: #00aced;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="your-profile-pic.jpg" alt="My Profile Picture" class="profile-pic" onclick="popAnimation()">
+
+    <div class="icons">
+        <a href="https://www.snapchat.com/add/yourusername" target="_blank">📸</a>
+        <a href="https://www.instagram.com/yourusername" target="_blank">📷</a>
+        <a href="https://www.facebook.com/yourusername" target="_blank">📘</a>
+        <a href="mailto:youremail@example.com" onclick="showEmail(event)">📧</a>
+        <a href="#" onclick="showPhoneNumber(event)">📞</a>
+    </div>
+
+    <script>
+        function popAnimation() {
+            const profilePic = document.querySelector('.profile-pic');
+            profilePic.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                profilePic.style.transform = 'scale(1)';
+            }, 300);
+        }
+
+        function showEmail(event) {
+            event.preventDefault();
+            alert("youremail@example.com");
+        }
+
+        function showPhoneNumber(event) {
+            event.preventDefault();
+            const phoneNumber = "123-456-7890";
+            const newWindow = window.open("", "", "width=400,height=200");
+            newWindow.document.write(`<p style="font-size: 32px; text-align: center;">${phoneNumber}</p>`);
+        }
+    </script>
+
+</body>
+</html>
